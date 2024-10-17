@@ -1,0 +1,12 @@
+.header {
+    display: flex;
+    width: 95vw;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 15px 0;
+    font-size: 1.2rem;
+}
+
+.header button img {
+    margin-left: -5px;
+}

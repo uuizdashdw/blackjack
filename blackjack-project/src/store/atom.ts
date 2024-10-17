@@ -10,6 +10,15 @@ export const shuffledCardsState = atom<CardData[]>({
 	default: [],
 });
 
+// 현재 셔플된 카드의 개수 반환
+export const cardsLeftState = selector({
+	key: 'cardsLeftState',
+	get: ({ get }) => {
+		const shuffleCards = get(shuffledCardsState);
+		return shuffleCards.length;
+	},
+});
+
 // 딜러의 패 상태
 export const dealerHandState = atom<CardData[]>({
 	key: 'dealerHandState',

@@ -9,8 +9,9 @@ import {
 	endRoundState,
 } from '../store/atom';
 
-// Splash Page
+// Components
 import SplashPage from '@/components/splash/SplashPage';
+import Header from '@/components/common/Header';
 
 // Hooks
 import { useEffect, useState } from 'react';
@@ -57,9 +58,9 @@ export default function Home() {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<div>
-				<main>{splashPage && <SplashPage />}</main>
-			</div>
+
+			<Header />
+			<main>{splashPage && <SplashPage />}</main>
 		</>
 	);
 }

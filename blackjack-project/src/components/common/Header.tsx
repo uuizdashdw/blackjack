@@ -8,7 +8,8 @@ import volumeMutedIcon from '../../images/volume-muted.svg';
 import Image from 'next/image';
 
 // Recoil
-import { cardsLeftState, soundMutedState } from '../../store/atom';
+import { cardsLeftState } from '../../store/selector';
+import { soundMutedState } from '../../store/atom';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 // Hook

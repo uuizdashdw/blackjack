@@ -1,0 +1,74 @@
+.splash_page {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../images/felt.jpg');
+    background-repeat: repeat;
+    z-index: 20;
+  }
+  
+.title {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../images/splash-text.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+  
+.splash_graphic {
+    z-index: 30;
+    transform: scale(0);
+    opacity: 0;
+    animation: grow 1200ms ease-in-out 300ms forwards;
+    backface-visibility: hidden;
+}
+  @keyframes grow {
+    20% {
+      transform: scale(1.15);
+      opacity: 1;
+    }
+    30% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    60% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(5);
+      opacity: 0;
+    }
+  }
+  
+  @media (prefers-reduced-motion) {
+    .splash_graphic {
+      animation: none;
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @media screen and (max-width: 550px) {
+    .splash_graphic {
+      margin-top: -50px;
+      max-width: 350px;
+      height: auto;
+    }
+  
+    .title {
+      background-size: 110%;
+      background-repeat: repeat;
+    }
+  }
+  
+  @media screen and (max-width: 350px) {
+    .splash_graphic {
+      margin-top: -50px;
+      max-width: 275px;
+      height: auto;
+    }
+  }
+  

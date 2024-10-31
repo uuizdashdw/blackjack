@@ -10,3 +10,15 @@
 .header button img {
     margin-left: -5px;
 }
+
+.cardsLeft {
+    font-weight: bold;
+}
+
+.deck_total {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+}

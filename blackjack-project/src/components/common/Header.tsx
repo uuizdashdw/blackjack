@@ -1,48 +1,39 @@
 // CSS
 import styles from './header.module.css';
 
-// Images
-import cardIcon from '../../images/cards-icon.svg';
-import volumeIcon from '../../images/volume.svg';
-import volumeMutedIcon from '../../images/volume-muted.svg';
+// Redux
+import { useDispatch, useSelector } from 'react-redux';
+import { setSoundMuted } from '@/store/features/soundSlice';
+
 import Image from 'next/image';
 
-// Recoil
-import { cardsLeftState } from '../../store/selector';
-import { soundMutedState } from '../../store/atom';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { RootState } from '@/store';
 
-// Hook
-import { useState } from 'react';
+export default function Header({ cardsLeft }: { cardsLeft: number }) {
+	const dispatch = useDispatch();
+	const soundMuted = useSelector(
+		(state: RootState) => state.soundMuted.soundMuted,
+	);
 
-export default function Header() {
-	const cardsLeft = useRecoilValue(cardsLeftState);
-	const soundMuted = useRecoilValue(soundMutedState);
-	const setSoundMuted = useSetRecoilState(soundMutedState);
-
-	// 소리 끄기
 	const handleSoundMuted = () => {
-		soundMuted ? setSoundMuted(false) : setSoundMuted(true);
+		dispatch(setSoundMuted(!soundMuted));
 	};
 
 	return (
 		<header className={styles.header}>
-			<button
-				onClick={handleSoundMuted}
-				aria-live="polite"
-				aria-label={soundMuted ? '볼륨 끄기' : '볼륨 키기'}
-			>
+			<button onClick={handleSoundMuted}>
 				<Image
-					src={soundMuted ? volumeMutedIcon : volumeIcon}
-					alt="sound"
+					src={soundMuted ? '/images/volume-muted.svg' : '/images/volume.svg'}
+					alt=""
 					width={45}
 					height={45}
 				/>
 			</button>
-			<div>
-				<Image src={cardIcon} alt="card icon" width={25} height={25} />
+			<div className={styles.deck_total}>
+				<Image src={'/images/cards-icon.svg'} alt="" width={25} height={25} />
 				<div>
-					<span>{cardsLeft}</span>
+					<span className={styles.cardsLeft}>{cardsLeft}</span>
+					<span> In Deck</span>
 				</div>
 			</div>
 		</header>

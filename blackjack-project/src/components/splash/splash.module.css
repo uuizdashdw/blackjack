@@ -1,8 +1,11 @@
 .splash_page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     width: 100vw;
     height: 100vh;
-    background-image: url('../../images/felt.jpg');
+    background-image: url('/images/felt.jpg');
     background-repeat: repeat;
     z-index: 20;
   }
@@ -11,7 +14,7 @@
     position: absolute;
     width: 100vw;
     height: 100vh;
-    background-image: url('../../images/splash-text.svg');
+    background-image: url('/images/splash-text.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

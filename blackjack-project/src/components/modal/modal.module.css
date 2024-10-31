@@ -1,0 +1,22 @@
+.modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 100;
+}
+
+.modal_message {
+    padding-bottom: 50px;
+    max-width: 300px;
+    text-align: center;
+    font-size: calc(28px + (80 - 28) * ((100vh - 400px) / (1600 - 350)));
+    line-height: 120%;
+    font-weight: bold;
+}
+  

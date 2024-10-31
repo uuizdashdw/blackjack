@@ -1,22 +1,28 @@
-import { useRecoilValue } from 'recoil';
+// Redux
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/store';
+import { setDealerHand, setPlayerHand } from '@/store/features/gameSlice';
+import { setShuffledCards } from '@/store/features/gameSlice';
 
 // Hook
 import { useHandleAces } from './useHandleAces';
-import { shuffledCardsState } from '@/store/atom';
 
-// Types
+// Type
 import { CardData } from '@/types/card';
 import { useDealInitialHandType } from '@/types/useDealInitialHandType';
 
 export function useDealInitialHand() {
+	const dispatch = useDispatch();
 	const { handleDoubleAcesOnDeal } = useHandleAces();
-	const shuffledCards = useRecoilValue<CardData[]>(shuffledCardsState);
+	const shuffledCards = useSelector(
+		(state: RootState) => state.game.shuffledCards,
+	);
 
 	const dealInitialHand = ({
 		setDealer,
 		setPlayer,
 	}: useDealInitialHandType) => {
-		const cardsForInitialDeal = shuffledCards.splice(0, 4);
+		const cardsForInitialDeal = shuffledCards.slice(0, 4); // 4장의 카드 선택
 
 		const player: CardData[] = cardsForInitialDeal.filter(
 			(_, idx) => idx % 2 === 0,
@@ -26,8 +32,13 @@ export function useDealInitialHand() {
 		);
 
 		handleDoubleAcesOnDeal(dealer, player);
+		dispatch(setDealerHand(dealer));
 		setDealer(dealer);
+		dispatch(setPlayerHand(player));
 		setPlayer(player);
+
+		// const remainingCards = shuffledCards.slice(4);
+		// dispatch(setShuffledCards(remainingCards));
 	};
 
 	return { dealInitialHand };

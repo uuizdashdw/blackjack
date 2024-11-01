@@ -10,7 +10,7 @@ export const useShuffleCards = () => {
 
 	cardsToShuffle = JSON.parse(JSON.stringify(cardsToShuffle));
 	const shuffleCards = () => {
-		var currentIndex = cardsToShuffle.length,
+		let currentIndex = cardsToShuffle.length,
 			temporaryValue,
 			randomIndex;
 

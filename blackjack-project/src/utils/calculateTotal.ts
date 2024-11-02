@@ -1,4 +1,6 @@
-import { CardData } from '@/types/card';
+// Type
+import { CardData } from '@/types/type';
+
 export const calculateTotal = (cards: CardData[]): number => {
 	let total = 0;
 	let aceCount = 0;

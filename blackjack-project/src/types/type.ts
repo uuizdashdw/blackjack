@@ -16,12 +16,12 @@ export interface BetType {
 	value: number;
 	url: string;
 	id: string;
-	x: string;
-	y: string;
-	ww: string;
-	wh: string;
-	w: string;
-	h: string;
+	x: number;
+	y: number;
+	ww: number;
+	wh: number;
+	w: number;
+	h: number;
 	classes: string;
 }
 

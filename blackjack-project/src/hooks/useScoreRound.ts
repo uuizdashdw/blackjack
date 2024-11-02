@@ -1,6 +1,5 @@
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '@/store';
 import {
 	setBankTotal,
 	setEndRound,
@@ -10,7 +9,7 @@ import {
 import { setDealerHand, setPlayerHand } from '@/store/features/gameSlice';
 
 // Type
-import { CardData } from '@/types/card';
+import { RootState } from '@/store';
 
 export function useScoreRound() {
 	const dispatch = useDispatch();
@@ -19,7 +18,7 @@ export function useScoreRound() {
 		(state: RootState) => state.game.bankTotal,
 	);
 	const betTotalScore = useSelector((state: RootState) => state.game.betTotal);
-	const dealerHand = useSelector((state: RootState) => state.game.dealerHand);
+	// const dealerHand = useSelector((state: RootState) => state.game.dealerHand);
 	const dealerTotalScore = useSelector(
 		(state: RootState) => state.game.dealerTotal,
 	);

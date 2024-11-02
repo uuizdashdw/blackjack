@@ -1,7 +1,7 @@
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store';
-import { setDealerHand, setDealerTotal } from '@/store/features/gameSlice';
+import { setDealerHand } from '@/store/features/gameSlice';
 
 // Hooks
 import { useDealNextCard } from './useDealNextCard';
@@ -11,7 +11,7 @@ import { useScoreRound } from './useScoreRound';
 import useSound from 'use-sound';
 
 // Type
-import { CardData } from '@/types/card';
+import { CardData } from '@/types/type';
 
 export function useDealDealer() {
 	const dispatch = useDispatch();

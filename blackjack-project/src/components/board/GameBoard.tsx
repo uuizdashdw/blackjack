@@ -35,8 +35,7 @@ import { useEffect } from 'react';
 import useSound from 'use-sound';
 
 // Types
-import { BetType } from '@/types/bet';
-import { CardData } from '@/types/card';
+import { CardData } from '@/types/type';
 import { RootState } from '@/store';
 
 export default function GameBoard() {

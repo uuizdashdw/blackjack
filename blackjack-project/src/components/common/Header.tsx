@@ -5,8 +5,10 @@ import styles from './header.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSoundMuted } from '@/store/features/soundSlice';
 
+// Image
 import Image from 'next/image';
 
+// Type
 import { RootState } from '@/store';
 
 export default function Header({ cardsLeft }: { cardsLeft: number }) {

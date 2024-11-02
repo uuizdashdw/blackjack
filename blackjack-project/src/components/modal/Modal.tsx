@@ -36,10 +36,6 @@ export default function Modal() {
 		setTimeout(() => {
 			if (prevBetAmount <= bankTotal) {
 				dispatch(repopulatePrevBet([...prevBet]));
-				// test
-				console.log('## 뱅크 토탈 :: ', bankTotal);
-				console.log('## 이전 베팅 값 ==> :: ', prevBetAmount);
-				console.log('## 이전 베팅?? :: => ', prevBet);
 			}
 		}, 500);
 	};

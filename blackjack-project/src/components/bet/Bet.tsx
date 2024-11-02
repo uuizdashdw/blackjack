@@ -4,21 +4,16 @@ import styles from './bet.module.css';
 // Component
 import GameButton from '../button/GameButton';
 
-// Type
-import { BetType } from '@/types/bet';
-
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { removeBet, addBet, addBetClasses } from '@/store/features/gameSlice';
+import { removeBet, addBetClasses } from '@/store/features/gameSlice';
 
 // Image
 import Image from 'next/image';
-import { RootState } from '@/store';
 
 // Type
-interface handleDoubleDown {
-	handleDoubleDown: () => void;
-}
+import { RootState } from '@/store';
+import { handleDoubleDown } from '@/types/type';
 
 export default function Bet({ handleDoubleDown }: handleDoubleDown) {
 	const dispatch = useDispatch();

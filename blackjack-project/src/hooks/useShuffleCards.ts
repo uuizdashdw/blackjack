@@ -2,7 +2,7 @@
 import Cards from '../data/cardData.json';
 
 // Type
-import { CardData } from '../types/card';
+import { CardData } from '@/types/type';
 
 export const useShuffleCards = () => {
 	let cardsToShuffle: CardData[] = [];
@@ -29,7 +29,7 @@ export const useShuffleCards = () => {
 			hour12: true,
 		});
 
-		console.log(`Cards shuffled at ${time}`);
+		console.log(`카드가 셔플된 시간 => ${time}`);
 
 		return cardsToShuffle;
 	};

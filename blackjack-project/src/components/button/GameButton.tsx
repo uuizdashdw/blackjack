@@ -2,22 +2,16 @@
 import styles from './gamebutton.module.css';
 
 // Type
-interface GameButton {
-	title: string;
-	clickHandler: () => void;
-	autoFocus?: boolean;
-	addedClasses?: string;
-}
+import { GameButtonType } from '@/types/type';
 
 export default function GameButton({
 	title,
 	clickHandler,
 	autoFocus,
 	addedClasses,
-}: GameButton) {
+}: GameButtonType) {
 	return (
 		<button
-			// className={`${styles.game_btn} ${addedClasses}`}
 			className={
 				addedClasses === 'round' ? styles.round_game_btn : styles.game_btn
 			}

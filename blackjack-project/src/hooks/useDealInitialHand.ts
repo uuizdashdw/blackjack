@@ -2,14 +2,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store';
 import { setDealerHand, setPlayerHand } from '@/store/features/gameSlice';
-import { setShuffledCards } from '@/store/features/gameSlice';
+// import { setShuffledCards } from '@/store/features/gameSlice';
 
 // Hook
 import { useHandleAces } from './useHandleAces';
 
 // Type
-import { CardData } from '@/types/card';
-import { useDealInitialHandType } from '@/types/useDealInitialHandType';
+import { CardData, useDealInitialHandType } from '@/types/type';
 
 export function useDealInitialHand() {
 	const dispatch = useDispatch();

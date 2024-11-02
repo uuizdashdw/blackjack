@@ -1,9 +1,9 @@
-// hooks/useHandleAces.ts
+// Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '@/store';
 import { setAcesChanged } from '@/store/features/gameSlice';
-import { CardData } from '@/types/card';
-import { useHandleAcesValuesType } from '@/types/useHandleAcesType';
+
+// Type
+import { CardData, useHandleAcesValuesType } from '@/types/type';
 
 export function useHandleAces() {
 	const dispatch = useDispatch();
@@ -28,7 +28,6 @@ export function useHandleAces() {
 		handTotal,
 		setHand,
 	}: useHandleAcesValuesType) => {
-		console.log('### 지금 카드 패 ::: ', hand);
 		let findAceIndex = hand.findIndex(card => card.value === 11);
 
 		let updatedHand = [...hand];

@@ -5,12 +5,8 @@ import styles from './cardhand.module.css';
 import Image from 'next/image';
 
 // Type
-import { CardData } from '@/types/card';
-interface CardHand {
-	playerOrDealer: string;
-	playerOrDealerHand: CardData[];
-	playerOrDealerTotal: number;
-}
+// import { CardData } from '@/types/card';
+import { CardHandType } from '@/types/type';
 
 // Hooks
 import { useEffect, useState } from 'react';
@@ -21,16 +17,12 @@ export default function CardHand({
 	playerOrDealer,
 	playerOrDealerHand,
 	playerOrDealerTotal,
-}: CardHand) {
+}: CardHandType) {
 	const [displayTotal, setDisplayTotal] = useState(0);
 
 	const completeDealerHand = useSelector(
 		(state: RootState) => state.game.completeDealerHand,
 	);
-
-	console.log('딜러 혹은 플레이어 :: ', playerOrDealer);
-	console.log('버그 개선 중 :: 토탈 점수', playerOrDealerTotal);
-	console.log('## 개선중 ㅇ비니다. :: 패 ', playerOrDealerHand);
 
 	useEffect(() => {
 		if (playerOrDealerHand.length > 0) {
@@ -44,26 +36,26 @@ export default function CardHand({
 		}
 	}, [playerOrDealerHand, completeDealerHand]);
 
-	const findSuit = (card: CardData): string => {
-		const string = card.iconUrl;
-		const suit = string.slice(1, -9);
-		return suit;
-	};
+	// const findSuit = (card: CardData): string => {
+	// 	const string = card.iconUrl;
+	// 	const suit = string.slice(1, -9);
+	// 	return suit;
+	// };
 
-	const readableValue = (card: CardData): string | number => {
-		switch (card.displayValue) {
-			case 'A':
-				return 'Ace';
-			case 'J':
-				return 'Jack';
-			case 'Q':
-				return 'Queen';
-			case 'K':
-				return 'King';
-			default:
-				return card.displayValue;
-		}
-	};
+	// const readableValue = (card: CardData): string | number => {
+	// 	switch (card.displayValue) {
+	// 		case 'A':
+	// 			return 'Ace';
+	// 		case 'J':
+	// 			return 'Jack';
+	// 		case 'Q':
+	// 			return 'Queen';
+	// 		case 'K':
+	// 			return 'King';
+	// 		default:
+	// 			return card.displayValue;
+	// 	}
+	// };
 	return (
 		<div className={styles.card_hand}>
 			{playerOrDealerHand.map((card, index) => (

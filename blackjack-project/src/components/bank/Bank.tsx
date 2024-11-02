@@ -3,7 +3,7 @@ import styles from './bank.module.css';
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
-import { setBet, loadChipsInBank } from '../../store/features/gameSlice';
+import { setBet } from '../../store/features/gameSlice';
 import { RootState } from '@/store';
 
 // Key
@@ -19,7 +19,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 // Type
-import { ChipType } from '@/types/chip';
+import { ChipType } from '@/types/type';
 
 export default function Bank() {
 	const [chipsInBank, setChipsInBank] = useState<ChipType[]>([]);
@@ -43,10 +43,6 @@ export default function Bank() {
 	});
 
 	useEffect(() => {
-		console.log('베팅 토탈', betTotal);
-	}, [betTotal]);
-
-	useEffect(() => {
 		const tempArr: ChipType[] = [];
 		chips.forEach(chip => {
 			if (bankTotal >= chip.value) {
@@ -63,7 +59,6 @@ export default function Bank() {
 		const height = window.innerHeight;
 
 		const currentBankTotal = bankTotal - betTotal;
-		console.log('베팅 정보 ::: ', currentTarget.dataset.value);
 
 		if (currentBankTotal < betTotal) return;
 

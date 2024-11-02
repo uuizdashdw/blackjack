@@ -9,30 +9,7 @@ import Chips from '../../data/chipData.json';
 import { calculateTotal } from '@/utils/calculateTotal';
 
 // Types
-import { CardData } from '@/types/card';
-import { ChipType } from '@/types/chip';
-import { BetType } from '@/types/bet';
-interface GameState {
-	shuffledCards: CardData[];
-	beginRound: boolean;
-	endRound: boolean;
-	cardsLeft: number;
-	currentBankTotal: number;
-	chipsInBank: ChipType[];
-	bet: BetType[];
-	playerHand: CardData[];
-	dealerHand: CardData[];
-	playerTotal: number;
-	dealerTotal: number;
-	completeDealerHand: boolean;
-	offerDoubleDown: boolean;
-	offerSplitHand: boolean;
-	acesChanged: any[];
-	bankTotal: number;
-	betTotal: number;
-	winnerMessage: string;
-	prevBet: BetType[];
-}
+import { CardData, BetType, GameState } from '@/types/type';
 
 const initialState: GameState = {
 	shuffledCards: [],
@@ -115,27 +92,6 @@ const gameSlice = createSlice({
 
 		doubleBet(state, action: PayloadAction<BetType[]>) {
 			state.bet = action.payload;
-			// const currentBet = state.bet.reduce((acc, bet) => acc + bet.value, 0);
-			// const chip = Chips.find(chip => chip.value === currentBet * 2);
-			// const lastBet = state.bet[state.bet.length - 1];
-
-			// if (chip) {
-			// 	const newBet: BetType = {
-			// 		value: chip.value,
-			// 		url: chip.url,
-			// 		id: `doubleBet-${chip.id}`,
-			// 		x: lastBet.x,
-			// 		y: lastBet.y,
-			// 		ww: lastBet.ww,
-			// 		wh: lastBet.wh,
-			// 		w: lastBet.w,
-			// 		h: lastBet.h,
-			// 		classes: lastBet.classes,
-			// 	};
-
-			// 	state.bet.push(newBet);
-			// 	state.betTotal += newBet.value;
-			// }
 		},
 
 		setDealerHand(state, action: PayloadAction<CardData[]>) {
@@ -195,8 +151,8 @@ const gameSlice = createSlice({
 			const { id, classes } = action.payload;
 			const item = state.bet.find(chip => id === chip.id);
 			if (item) item.classes = classes;
-			console.log('## 추가될 아이템 ==> ', item);
-			console.log('## 추가된 클래스 ==> ', action.payload);
+			// console.log('## 추가될 아이템 ==> ', item);
+			// console.log('## 추가된 클래스 ==> ', action.payload);
 		},
 
 		addBet(state, action: PayloadAction<BetType>) {
